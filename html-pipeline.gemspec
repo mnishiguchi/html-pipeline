@@ -17,6 +17,8 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'activesupport', '>= 2'
   gem.add_dependency 'nokogiri', '>= 1.4'
+  gem.add_dependency 'tracking_number'
+  gem.add_dependency 'addressable'
 
   gem.post_install_message = <<msg
 -------------------------------------------------

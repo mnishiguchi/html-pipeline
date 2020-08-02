@@ -34,22 +34,21 @@ class HTML::Pipeline::WhitespaceFilterTest < Minitest::Test
 
   def test_translate_newline_to_br_for_q
     q_with_newline_chars = "<q>foo\n\nbar\nbaz</q>"
-    expected = "<q>foo<br><br>bar<br>baz</q>"
+    expected = '<q>foo<br><br>bar<br>baz</q>'
 
     assert_equal(expected, WhitespaceFilter.call(q_with_newline_chars).to_html)
   end
 
   def test_pipeline_text_with_no_whitespace
-
     assert_equal(
-      "<div>foo</div>",
-      plain_text_pipeline.call("foo").fetch(:output).to_html
+      '<div>foo</div>',
+      plain_text_pipeline.call('foo').fetch(:output).to_html
     )
   end
 
   def test_pipeline_text_with_one_linebreak
     assert_equal(
-      "<div>foo<br>bar</div>",
+      '<div>foo<br>bar</div>',
       plain_text_pipeline.call("foo\nbar").fetch(:output).to_html
     )
   end
@@ -77,10 +76,10 @@ class HTML::Pipeline::WhitespaceFilterTest < Minitest::Test
 
   private
 
-  def plain_text_pipeline
+  def plain_text_pipeline(context = {})
     HTML::Pipeline.new [
       HTML::Pipeline::PlainTextInputFilter,
-      HTML::Pipeline::WhitespaceFilter,
-    ]
+      HTML::Pipeline::WhitespaceFilter
+    ], context
   end
 end
