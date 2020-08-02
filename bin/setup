@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+system("ruby -v ") || abort
+system("bundle -v") || abort
+puts "== Installing dependencies =="
+system('bundle install') || abort
