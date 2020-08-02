@@ -7,6 +7,7 @@ require 'minitest/pride'
 require 'minitest/focus'
 
 require 'active_support/core_ext/string'
+require 'pry'
 
 module TestHelpers
   # Asserts that two html fragments are equivalent. Attribute order
