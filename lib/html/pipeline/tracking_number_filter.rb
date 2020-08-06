@@ -18,7 +18,7 @@ module HTML
       IGNORE_PARENTS = %w[pre code a q].freeze
 
       def call
-        doc.xpath('.//text()').each do |node|
+        doc.search('.//text()').each do |node|
           content = node.to_html
           next unless content =~ /\d+/
           next if has_ancestor?(node, IGNORE_PARENTS)
